@@ -10,7 +10,7 @@ import google.generativeai as genai
 from google.cloud import storage, bigquery
 
 # ── Config ──────────────────────────────────────────────
-GEMINI_API_KEY = "AIzaSyAx59-sbNQulfotDMaB1atYZ9gI4MS1-eo"   # <-- paste here
+GEMINI_API_KEY = "######################################"   # <-- paste here
 GCP_PROJECT    = "custom-vigil-346206"
 BUCKET_NAME    = "ai-sbucket1"
 BQ_DATASET     = "hr_analytics"
