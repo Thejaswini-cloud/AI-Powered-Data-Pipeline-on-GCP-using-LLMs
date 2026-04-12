@@ -9,18 +9,18 @@ from io import BytesIO, StringIO
 import google.generativeai as genai
 from google.cloud import storage, bigquery
 
-# ── Config ──────────────────────────────────────────────
+# Config
 GEMINI_API_KEY = "######################################"   # <-- paste here
 GCP_PROJECT    = "custom-vigil-346206"
 BUCKET_NAME    = "ai-sbucket1"
 BQ_DATASET     = "hr_analytics"
 BQ_TABLE       = "employee_enriched"
 
-# ── Gemini (free, no billing needed) ────────────────────
+# Gemini (free, no billing needed)
 genai.configure(api_key=GEMINI_API_KEY)
 model = genai.GenerativeModel("gemini-2.0-flash")
 
-# ── 1. Generate fake data ────────────────────────────────
+# 1. Generate fake data
 fake = Faker()
 Faker.seed(42)
 random.seed(42)
@@ -55,7 +55,7 @@ df = pd.DataFrame([generate_employee(i+1) for i in range(100)])
 df["feedback_text"] = df.apply(generate_feedback, axis=1)
 print(f"Generated {len(df)} employee records")
 
-# ── 2. Enrich with Gemini ────────────────────────────────
+#2. Enrich with Gemini 
 def enrich_batch(texts):
     numbered = "\n".join(f"{i+1}. {t}" for i, t in enumerate(texts))
     prompt = f"""You are an HR analytics AI.
@@ -94,7 +94,7 @@ for i in range(0, len(df), batch_size):
 enriched_df = pd.DataFrame(results)
 print(enriched_df[["department","salary","category","sentiment"]].head(10))
 
-# ── 3. Upload enriched CSV to GCS ───────────────────────
+# 3. Upload enriched CSV to GCS
 def upload_to_gcs(df, bucket, blob_name):
     buf = BytesIO()
     df.to_csv(buf, index=False)
@@ -106,7 +106,7 @@ def upload_to_gcs(df, bucket, blob_name):
 
 upload_to_gcs(enriched_df, BUCKET_NAME, "enriched/employee_enriched.csv")
 
-# ── 4. Load into BigQuery ────────────────────────────────
+# 4. Load into BigQuer
 def load_to_bigquery(df, project, dataset, table):
     client = bigquery.Client(project=project)
 
