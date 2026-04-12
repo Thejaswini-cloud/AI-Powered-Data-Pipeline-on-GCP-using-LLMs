@@ -1,6 +1,6 @@
 **HR Analytics Pipeline with Gemini AI, GCP & BigQuery**
 
-This project demonstrates an end-to-end data engineering + AI enrichment pipeline that generates synthetic employee data, analyzes feedback using Google Gemini AI, and loads enriched insights into Google Cloud Platform (GCS + BigQuery).🚀 Features
+This project demonstrates an end-to-end data engineering with AI enrichment pipeline that generates synthetic employee data, analyzes feedback using Google Gemini AI, and loads enriched insights into Google Cloud Platform (GCS + BigQuery).
 
  **Features**
 
