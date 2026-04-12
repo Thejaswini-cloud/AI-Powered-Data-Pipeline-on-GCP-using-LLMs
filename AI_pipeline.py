@@ -1,4 +1,3 @@
-# full_pipeline_free_tier.py
 import pandas as pd
 from faker import Faker
 import random
@@ -10,7 +9,7 @@ import google.generativeai as genai
 from google.cloud import storage, bigquery
 
 # Config
-GEMINI_API_KEY = "######################################"   # <-- paste here
+GEMINI_API_KEY = "######################################"  
 GCP_PROJECT    = "custom-vigil-346206"
 BUCKET_NAME    = "ai-sbucket1"
 BQ_DATASET     = "hr_analytics"
