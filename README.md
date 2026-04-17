@@ -7,11 +7,14 @@ This project demonstrates an end-to-end data engineering with AI enrichment pipe
 1. Generate realistic synthetic employee data using Faker
 2. Create rule-based employee feedback
 3. Enrich feedback using Gemini AI (LLM) for:
+   
     3.a. Sentiment analysis (positive / neutral / negative)
+   
     3.b. Categorization (Compensation, Management, etc.)
-4. Batch processing with retry handling
-5. Upload processed data to Google Cloud Storage (GCS)
-6. Load structured data into BigQuery for analytics
+   
+5. Batch processing with retry handling
+6. Upload processed data to Google Cloud Storage (GCS)
+7. Load structured data into BigQuery for analytics
 
 **Output**
 
@@ -26,7 +29,7 @@ This project demonstrates an end-to-end data engineering with AI enrichment pipe
 
 gs://<bucket-name>/enriched/employee_enriched.csv
 
-4. BigQuery Table
+3. BigQuery Table
    
  project-id.hr_analytics.employee_enriched
 
